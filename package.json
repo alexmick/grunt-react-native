@@ -1,0 +1,38 @@
+{
+  "name": "grunt-react-native-wrapper",
+  "description": "A grunt plugin for launching the React Native packager and bundle your files for relase",
+  "version": "0.1.0",
+  "homepage": "https://github.com/alexmick/grunt-react-native",
+  "author": {
+    "name": "Alexander Micklewright",
+    "email": "alexmick@users.noreply.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexmick/grunt-react-native.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexmick/grunt-react-native/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/alexmick/grunt-react-native/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
