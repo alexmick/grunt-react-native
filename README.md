@@ -1,6 +1,6 @@
-# grunt-react-native
+# grunt-react-native [![Build Status](https://travis-ci.org/alexmick/grunt-react-native.svg?branch=master)](https://travis-ci.org/alexmick/grunt-react-native)
 
-> A grunt plugin for launching the React Native packager and bundle your files for relase
+> A grunt plugin for launching the React Native packager and bundle your files for release
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
