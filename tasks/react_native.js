@@ -8,43 +8,49 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+var childProcess = require('child_process');
+var path = require('path');
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+module.exports = function(grunt) {
 
   grunt.registerMultiTask('react_native', 'A grunt plugin for launching the React Native packager and bundle your files for relase', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
+      minify: false,
+      platform: this.target,
+      verbose: false,
+      watch: false,
     });
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      // Concat specified files.
-      var src = f.src.filter(function(filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+    var cli = 'node ./node_modules/react-native/local-cli/cli.js ';
+    var args = ' --reset-cache '; // workaround https://github.com/facebook/react-native/issues/4968
+    if (options.verbose) {
+      args += '--verbose ';
+    }
+    if (options.minify) {
+      args += '--dev false ';
+    }
 
-      // Handle options.
-      src += options.punctuation;
+    if (options.watch) {
+      // The . here is crucial to fix issue https://github.com/facebook/react-native/issues/4968
+      args += '--projectRoots .,' + this.data.src;
 
-      // Write the destination file.
-      grunt.file.write(f.dest, src);
+      grunt.log.debug("Running : " + cli + 'start' + args);
+      childProcess.execSync(cli + 'start' + args, { stdio: 'inherit' });
+    } else {
+      // Make sur output dir exists as react-native won't create it
+      var output_dir = path.dirname(this.data.dst);
+      if (!grunt.file.exists(output_dir)) {
+        grunt.file.mkdir(output_dir);
+      }
 
-      // Print a success message.
-      grunt.log.writeln('File "' + f.dest + '" created.');
-    });
+      args += '--entry-file ' + this.data.src;
+      args += ' --bundle-output ' + this.data.dst;
+      args += ' --platform ' + options.platform;
+
+      grunt.log.debug("Running : " + cli + 'bundle' + args);
+      childProcess.execSync(cli + 'bundle' + args, { stdio: 'inherit' });
+    }
   });
 
 };

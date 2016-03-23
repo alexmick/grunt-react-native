@@ -27,21 +27,39 @@ exports.react_native = {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  ios: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actual = grunt.file.read('tmp/dev/index.ios.bundle');
+    var expected = grunt.file.read('test/expected/dev/index.ios.bundle');
+    test.equal(actual, expected, 'Match ios files.');
 
     test.done();
   },
-  custom_options: function(test) {
+  android: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    var actual = grunt.file.read('tmp/dev/index.android.bundle');
+    var expected = grunt.file.read('test/expected/dev/index.android.bundle');
+    test.equal(actual, expected, 'Match android files.');
+
+    test.done();
+  },
+  ios_release: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/release/index.ios.bundle');
+    var expected = grunt.file.read('test/expected/release/index.ios.bundle');
+    test.equal(actual, expected, 'Match ios files.');
+
+    test.done();
+  },
+  android_release: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/release/index.android.bundle');
+    var expected = grunt.file.read('test/expected/release/index.android.bundle');
+    test.equal(actual, expected, 'Match android files.');
 
     test.done();
   },

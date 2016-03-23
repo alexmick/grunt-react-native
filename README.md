@@ -25,11 +25,11 @@ In your project's Gruntfile, add a section named `react_native` to the data obje
 ```js
 grunt.initConfig({
   react_native: {
-    options: {
-      // Task-specific options go here.
-    },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      options: {
+        // Target-specific options go here.
+      }
+      // Target-specific files go here.
     },
   },
 });
@@ -37,46 +37,50 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.minify
+Type: `Boolean`
+Default value: `false`
+
+Setting to true will minify the resulting bundle.
+
+#### options.platform
 Type: `String`
-Default value: `',  '`
+Default value: The task's (target) name
 
-A string value that is used to do something with whatever.
+Which platform the bundle is made for.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.verbose
+Type: `Boolean`
+Default value: `false`
 
-A string value that is used to do something else with whatever else.
+Verbose mode.
+
+#### options.watch
+Type: `Boolean`
+Default value: `false`
+
+Watch mode, this will launch the react native packager server for development.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
 ```js
 grunt.initConfig({
   react_native: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    ios: {
+      options: {
+        minify: false,
+        verbose: false,
+        watch: false,
+      },
+      src: 'src/index.ios.js',
+      dst: 'build/index.ios.bundle',
     },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  react_native: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    watch: {
+      options: {
+        verbose: false,
+        watch: true,
+      },
+      src: 'src/', // The directory to watch and serve
     },
   },
 });
@@ -86,4 +90,12 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+
+### V 0.1.0 Initial Release
+
+Supports :
+* Bundle task
+* Watch task
+ 
+To do :
+* Manage assets destination
