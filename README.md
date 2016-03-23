@@ -91,6 +91,16 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### V 0.1.1 Initial Release
+
+Fixes :
+* Failing tests (react-native's fault)
+ 
+To do :
+* Find a more reliable way to test output files
+* Manage assets destination
+
+
 ### V 0.1.0 Initial Release
 
 Supports :

@@ -1,6 +1,7 @@
 'use strict';
 
 var grunt = require('grunt');
+var crypto = require('crypto');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,6 +23,16 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
+// TODO Find a more reliable way to test
+
+// Calculate checksum of files (this avoids dumping the whole file to log on assert error)
+function checksum (str, algorithm, encoding) {
+  return crypto
+    .createHash(algorithm || 'md5')
+    .update(str, 'utf8')
+    .digest(encoding || 'hex');
+}
+
 exports.react_native = {
   setUp: function(done) {
     // setup here if necessary
@@ -32,7 +43,7 @@ exports.react_native = {
 
     var actual = grunt.file.read('tmp/index.ios.bundle');
     var expected = grunt.file.read('test/expected/index.ios.bundle');
-    test.equal(actual, expected, 'Match ios files.');
+    test.equal(checksum(actual), checksum(expected), 'Match ios files.');
 
     test.done();
   },
@@ -41,7 +52,7 @@ exports.react_native = {
 
     var actual = grunt.file.read('tmp/index.android.bundle');
     var expected = grunt.file.read('test/expected/index.android.bundle');
-    test.equal(actual, expected, 'Match android files.');
+    test.equal(checksum(actual), checksum(expected), 'Match android files.');
 
     test.done();
   },
