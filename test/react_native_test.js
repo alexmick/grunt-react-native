@@ -30,8 +30,8 @@ exports.react_native = {
   ios: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/dev/index.ios.bundle');
-    var expected = grunt.file.read('test/expected/dev/index.ios.bundle');
+    var actual = grunt.file.read('tmp/index.ios.bundle');
+    var expected = grunt.file.read('test/expected/index.ios.bundle');
     test.equal(actual, expected, 'Match ios files.');
 
     test.done();
@@ -39,26 +39,8 @@ exports.react_native = {
   android: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/dev/index.android.bundle');
-    var expected = grunt.file.read('test/expected/dev/index.android.bundle');
-    test.equal(actual, expected, 'Match android files.');
-
-    test.done();
-  },
-  ios_release: function(test) {
-    test.expect(1);
-
-    var actual = grunt.file.read('tmp/release/index.ios.bundle');
-    var expected = grunt.file.read('test/expected/release/index.ios.bundle');
-    test.equal(actual, expected, 'Match ios files.');
-
-    test.done();
-  },
-  android_release: function(test) {
-    test.expect(1);
-
-    var actual = grunt.file.read('tmp/release/index.android.bundle');
-    var expected = grunt.file.read('test/expected/release/index.android.bundle');
+    var actual = grunt.file.read('tmp/index.android.bundle');
+    var expected = grunt.file.read('test/expected/index.android.bundle');
     test.equal(actual, expected, 'Match android files.');
 
     test.done();

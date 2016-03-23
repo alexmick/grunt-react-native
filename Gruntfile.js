@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           watch: false,
         },
         src: 'test/fixtures/index.ios.js',
-        dst: 'tmp/dev/index.ios.bundle',
+        dst: 'tmp/index.ios.bundle',
       },
       ios_release: {
         options: {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
           watch: false,
         },
         src: 'test/fixtures/index.android.js',
-        dst: 'tmp/dev/index.android.bundle',
+        dst: 'tmp/index.android.bundle',
       },
       android_release: {
         options: {
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'react_native:ios', 'react_native:ios_release', 'react_native:android', 'react_native:android_release', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'react_native:ios', 'react_native:android', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
