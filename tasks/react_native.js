@@ -46,8 +46,8 @@ module.exports = function(grunt) {
 
       args += '--entry-file ' + this.data.src;
       args += ' --bundle-output ' + this.data.dst;
+      args += ' --assets-dest ' + output_dir;
       args += ' --platform ' + options.platform;
-      // TODO Manage assetDir arg
 
       grunt.log.debug("Running : " + cli + 'bundle' + args);
       childProcess.execSync(cli + 'bundle' + args, { stdio: 'inherit' });
