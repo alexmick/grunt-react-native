@@ -91,6 +91,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### V 2.1.2 Major release version bump because of ownership transfer to @alexmick
+
 ### V 0.1.2 Include assets
 
 Features :
