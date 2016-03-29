@@ -47,7 +47,7 @@ module.exports = function(grunt) {
           watch: false,
         },
         src: 'test/fixtures/index.ios.js',
-        dst: 'tmp/release/index.ios.bundle',
+        dst: 'tmp/index_minified.ios.bundle',
       },
       android: {
         options: {
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
           watch: false,
         },
         src: 'test/fixtures/index.android.js',
-        dst: 'tmp/release/index.android.bundle',
+        dst: 'tmp/index_minified.android.bundle',
       },
       watch: {
         options: {
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // The nodeunit is voluntarily omitted: as of right now react-native packager results are just too unpredictable
-  grunt.registerTask('test', ['clean', 'react_native:ios', 'react_native:android']);
+  grunt.registerTask('test', ['clean', 'react_native:ios', 'react_native:android', 'react_native:ios_release', 'react_native:android_release', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

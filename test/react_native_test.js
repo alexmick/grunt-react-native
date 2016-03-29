@@ -56,4 +56,22 @@ exports.react_native = {
 
     test.done();
   },
+  ios_release: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/index_minified.ios.bundle');
+    var expected = grunt.file.read('test/expected/index_minified.ios.bundle');
+    test.equal(checksum(actual), checksum(expected), 'Match ios release files.');
+
+    test.done();
+  },
+  android_release: function(test) {
+    test.expect(1);
+
+    var actual = grunt.file.read('tmp/index_minified.android.bundle');
+    var expected = grunt.file.read('test/expected/index_minified.android.bundle');
+    test.equal(checksum(actual), checksum(expected), 'Match android release files.');
+
+    test.done();
+  },
 };
