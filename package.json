@@ -19,7 +19,8 @@
     "node": ">= 4.0"
   },
   "scripts": {
-    "test": "cat node_modules/.bin/react-native && npm run clean && npm run expected && npm run expected_minified && grunt test",
+    "postinstall": "ln -fs $(pwd)/node_modules/react-native-cli/index.js node_modules/.bin/react-native",
+    "test": "npm run clean && npm run expected && npm run expected_minified && grunt test",
     "clean": "rm -rf test/expected && grunt clean",
     "expected": "mkdir -p test/expected && react-native bundle --entry-file test/fixtures/index.ios.js --bundle-output test/expected/index.ios.bundle --platform ios --assets-dest test/expected && react-native bundle --entry-file test/fixtures/index.android.js --bundle-output test/expected/index.android.bundle --platform android --assets-dest test/expected",
     "expected_minified": "mkdir -p test/expected && react-native bundle --entry-file test/fixtures/index.ios.js --bundle-output test/expected/index_minified.ios.bundle --platform ios --assets-dest test/expected --dev false && react-native bundle --entry-file test/fixtures/index.android.js --bundle-output test/expected/index_minified.android.bundle --platform android --assets-dest test/expected --dev false"
