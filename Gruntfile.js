@@ -52,6 +52,7 @@ module.exports = function(grunt) {
       android: {
         options: {
           minify: false,
+          reset_cache: true,
           verbose: false,
           watch: false,
         },
@@ -93,7 +94,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // The nodeunit is voluntarily omitted: as of right now react-native packager results are just too unpredictable
-  grunt.registerTask('test', ['clean', 'react_native:ios', 'react_native:android']);
+  grunt.registerTask('test', ['clean', 'react_native:ios']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

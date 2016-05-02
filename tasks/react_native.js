@@ -18,12 +18,16 @@ module.exports = function(grunt) {
     var options = this.options({
       minify: false,
       platform: this.target,
+      reset_cache: false,
       verbose: false,
       watch: false,
     });
 
     var cli = 'node ./node_modules/react-native/local-cli/cli.js ';
-    var args = ' --reset-cache '; // workaround https://github.com/facebook/react-native/issues/4968
+    var args = ' ';
+    if (options.reset_cache) {
+      args += '--reset-cache '; // workaround https://github.com/facebook/react-native/issues/4968
+    }
     if (options.verbose) {
       args += '--verbose ';
     }

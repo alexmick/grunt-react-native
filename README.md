@@ -49,6 +49,12 @@ Default value: The task's (target) name
 
 Which platform the bundle is made for.
 
+#### options.reset_cache
+Type: `Boolean`
+Default value: `false`
+
+Passe the reset cache option to react native packager (see https://github.com/facebook/react-native/issues/4968)
+
 #### options.verbose
 Type: `Boolean`
 Default value: `false`
