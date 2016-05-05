@@ -21,7 +21,7 @@
   "scripts": {
     "test": "grunt test"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react-native": "^0.24.1"
   },
   "devDependencies": {
