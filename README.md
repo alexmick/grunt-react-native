@@ -97,6 +97,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### V 2.1.4 Use peer dependencies
+
 ### V 2.1.3 Update dependency management
 
 ### V 2.1.2 Major release version bump because of ownership transfer to @alexmick
