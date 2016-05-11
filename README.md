@@ -53,7 +53,7 @@ Which platform the bundle is made for.
 Type: `Boolean`
 Default value: `false`
 
-Passe the reset cache option to react native packager (see https://github.com/facebook/react-native/issues/4968)
+Pass the reset cache option to react native packager (see https://github.com/facebook/react-native/issues/4968)
 
 #### options.verbose
 Type: `Boolean`

@@ -22,7 +22,7 @@
     "test": "grunt test"
   },
   "peerDependencies": {
-    "react-native": "^0.24.1"
+    "react-native": "^0.26.0-rc"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
