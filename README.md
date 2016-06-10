@@ -1,4 +1,4 @@
-# grunt-react-native [![Build Status](https://travis-ci.org/alexmick/grunt-react-native.svg?branch=master)](https://travis-ci.org/alexmick/grunt-react-native) [![npm](https://img.shields.io/npm/dt/grunt-react-native.svg)](https://www.npmjs.com/package/grunt-react-native)
+# grunt-react-native [![Build Status](https://travis-ci.org/feedly/grunt-react-native.svg?branch=master)](https://travis-ci.org/feedly/grunt-react-native) [![npm](https://img.shields.io/npm/dt/grunt-react-native.svg)](https://www.npmjs.com/package/grunt-react-native)
 
 > A grunt plugin for launching the React Native packager and bundle your files for release
 
@@ -96,6 +96,8 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### V 2.2.0 Transfer ownership from [@alexmick](https://github.com/alexmick) to @feedly
 
 ### V 2.1.4 Use peer dependencies
 
