@@ -1,7 +1,7 @@
 {
   "name": "grunt-react-native",
   "description": "A grunt plugin for launching the React Native packager and bundle your files for relase",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "homepage": "https://github.com/feedly/grunt-react-native",
   "author": {
     "name": "Alexander Micklewright",
